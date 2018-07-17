@@ -1,45 +1,56 @@
 import React, { Component } from 'react'
-import { View, Text, Button, Image, TouchableOpacity, Dimensions, StyleSheet,TextInput } from 'react-native';
+import { View, Text, Button, Image, TouchableOpacity, Dimensions, StyleSheet, TextInput } from 'react-native'
 
-import PhoneInput from "react-native-phone-input";
+import PhoneInput from 'react-native-phone-input'
 
-import ImageSlider from 'react-native-image-slider';
+import ImageSlider from '../Components/ImageSlider'
 
 import styles from './styles/StartPage'
 
-export default class StartPage extends React.Component {
+export default class StartPage extends Component {
+
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      items: [
+        <Text style={{color: '#f00'}}>
+          {`Hello  1`}
+        </Text>,
+        <Text style={{color: '#0f0'}}>
+          {`Hello  2`}
+        </Text>,
+        <Text style={{color: '#00f'}}>
+          {`Hello  3`}
+        </Text>,
+      ]
+    }
+  }
 
   render () {
-    const images = [
-      'https://placeimg.com/640/640/nature',
-      'https://placeimg.com/640/640/nature',
-      'https://placeimg.com/640/640/nature'
-    ]
     return (
       <View style={styles.view}>
 
-        <View style={{flex:0.7}}>
-        <ImageSlider
-          loopBothSides
-          autoPlayWithInterval={3000}
-          images={images} />
-       </View>
+        <View style={{flex: 0.75}}>
+          <ImageSlider items={this.state.items}/>
+        </View>
 
-        <View style={{flex:0.1,justifyContent:'flex-start',paddingTop:15}}>
+        <View style={{flex: 0.083, justifyContent: 'flex-start', paddingTop: 15}}>
           <Text style={styles.txt}>
             What are you waiting for?
           </Text>
         </View>
 
-        <View style={{flex:0.15,}}>
-          <TextInput style={{color:'#181818',paddingLeft:20}} keyboardType="phone-pad" placeholder='Enter your mobile number' placeholderTextColor="#828282">
+        <View style={{flex: 0.083}}>
+          <TextInput style={{color: '#181818', paddingLeft: 20}} keyboardType="phone-pad"
+                     placeholder='Enter your mobile number' placeholderTextColor="#828282">
           </TextInput>
         </View>
 
-        <View style={{flex:0.1,justifyContent:'flex-end',paddingBottom:20}}>
+        <View style={{flex: 0.083, justifyContent: 'flex-end', paddingBottom: 20}}>
           <TouchableOpacity>
-            <Text style={styles.txt}>
-              Or connect using social account’
+            <Text style={[styles.txt, {fontSize: 16}]}>
+              Or connect using social account.
             </Text>
           </TouchableOpacity>
         </View>
@@ -48,16 +59,3 @@ export default class StartPage extends React.Component {
     )
   }
 }
-/*
- <View style={{justifyContent: 'center', alignItems: 'center', backgroundColor: 'black'}}>
- <Image source={require('../Images/Doolu_-_Logos_-_Primary_-_White.png')} style={styles.img}/>
- <View>
- <Text style={styles.title}>
- Personal Service.
- </Text>
- <Text style={styles.title}>
- Trusted Help
- </Text>
- </View>
- </View>
-*/
