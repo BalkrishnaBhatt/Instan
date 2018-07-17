@@ -4,13 +4,21 @@ import Fonts from '../../Themes/Fonts'
 
 export default StyleSheet.create({
   view: {
-    flex: 1
+    flex: 1,
+    backgroundColor:'white'
   },
 
   txt:{
     fontFamily: 'Helvetica NeueLTPro_Th',
     color: '#181818',
     fontSize: 20,
+    paddingLeft:20
+  },
+
+  txt1:{
+    fontFamily: 'Helvetica NeueLTPro_Th',
+    color: '#181818',
+    fontSize: 16,
     paddingLeft:20
   },
 
