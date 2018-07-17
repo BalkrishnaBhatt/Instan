@@ -63,6 +63,11 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Helvetica NeueLTPro_Bd.ttf</string>
+		<string>Helvetica NeueLTPro_Lt.ttf</string>
+		<string>Helvetica NeueLTPro_Md.ttf</string>
+		<string>Helvetica NeueLTPro_Roman.ttf</string>
+		<string>Helvetica NeueLTPro_Th.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -1,7 +1,7 @@
 const type = {
   base: 'Avenir-Book',
   bold: 'Avenir-Black',
-  emphasis: 'HelveticaNeue-Italic'
+  emphasis: 'Helvetica NeueLTPro_Th'
 }
 
 const size = {
@@ -44,7 +44,7 @@ const style = {
     fontSize: size.h6
   },
   normal: {
-    fontFamily: type.base,
+    fontFamily: type.emphasis,
     fontSize: size.regular
   },
   description: {
