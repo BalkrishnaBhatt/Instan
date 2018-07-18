@@ -17,14 +17,13 @@ import {
 
 import PhoneInput from 'react-native-phone-input'
 
+import MobileNumberInput from '../Components/EnterMobileNumber/MobileNumberInput'
+
 import ImageSlider from '../Components/ImageSlider'
-
 import styles from './styles/StartPage'
-
 import { firstScreen, secondScreen, thirdScreen } from '../Components/startPage/SliderComponents'
 
 export default class StartPage extends Component {
-
   constructor (props) {
     super(props)
 
@@ -75,6 +74,9 @@ export default class StartPage extends Component {
           </View>
         }
 
+        <View style={{flex: 0.13}}>
+          <MobileNumberInput/>
+        </View>
         <View style={{flex: modalVisible ? 1 : 0.13, justifyContent: 'flex-start'}}>
           <View style={styles.viewLine}>
             <View style={{flex: .27}}

@@ -27,7 +27,11 @@ export default StyleSheet.create({
     fontSize: 18,
     fontFamily: 'Helvetica NeueLTPro_Th'
   },
-  phoneinput: {color: '#181818', fontSize: 18, fontFamily: 'Helvetica NeueLTPro_Th'},
+  phoneinput: {
+    color: '#181818',
+    fontSize: 18,
+    fontFamily: 'Helvetica NeueLTPro_Th'
+  },
   txt: {
     fontFamily: 'Helvetica NeueLTPro_Th',
     color: '#181818',
