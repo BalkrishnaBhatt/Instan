@@ -1,13 +1,14 @@
 import { StyleSheet } from 'react-native'
 
-import Fonts from '../../Themes/Fonts'
-
 export default StyleSheet.create({
   view: {
     flex: 1,
     backgroundColor:'white'
   },
-
+  title1:{color: '#ffffff' ,fontSize:35,fontFamily:'Helvetica NeueLTPro_Lt',paddingTop:20 },
+  title2:{color: '#ffffff' ,fontSize:35,fontFamily:'Helvetica NeueLTPro_Lt'},
+  title3:{color: '#ffffff' ,fontSize:18,fontFamily:'Helvetica NeueLTPro_Th',paddingTop:20 },
+  title4:{color: '#ffffff' ,fontSize:18,fontFamily:'Helvetica NeueLTPro_Th'},
   txt:{
     fontFamily: 'Helvetica NeueLTPro_Th',
     color: '#181818',

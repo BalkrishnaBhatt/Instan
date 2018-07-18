@@ -7,31 +7,85 @@ import CountryPicker, {
   getAllCountries
 } from 'react-native-country-picker-modal'
 
-import ImageSlider from 'react-native-image-slider'
+import ImageSlider from '../Components/ImageSlider'
 
 import styles from './styles/StartPage'
 
 const NORTH_AMERICA = ['CA', 'MX', 'US']
 
-export default class StartPage extends React.Component {
+const firstScreen = () => <View style={{alignItems: 'center',}}>
+  <Image source={require('../../App/Images/Doolu_-_Logos_-_Primary_-_White.png')} style={{height: 24, width: 88}}/>
+  <Text style={styles.title1}>
+    Personal Service.
+  </Text>
+  <Text style={styles.title2}>
+    Trusted Help.
+  </Text>
+  <Text style={styles.title3}>
+    Find an assistant at the
+  </Text>
 
+  <Text style={styles.title4}>
+    tip of your fingers
+  </Text>
+
+</View>
+
+const secondScreen = () => <View style={{alignItems: 'center',}}>
+  <Image source={require('../../App/Images/Doolu_-_Logos_-_Primary_-_White.png')} style={{height: 24, width: 88}}/>
+  <Text style={styles.title1}>
+    Find trusted help
+  </Text>
+  <Text style={styles.title2}>
+    in your community
+  </Text>
+  <Text style={styles.title3}>
+    Local, verified and trusted help to lend a
+  </Text>
+  <Text style={styles.title4}>
+    hand with your tasks
+  </Text>
+</View>
+
+const thirdScreen = () => <View style={{alignItems: 'center',}}>
+  <Image source={require('../../App/Images/Doolu_-_Logos_-_Primary_-_White.png')} style={{height: 24, width: 88}}/>
+  <Text style={styles.title1}>
+    Post and pay
+  </Text>
+  <Text style={styles.title2}>
+    easily
+  </Text>
+  <Text style={styles.title3}>
+    It’s safe, secure and simple to post
+  </Text>
+  <Text style={styles.title4}>
+    and pay for the help on our app
+  </Text>
+
+</View>
+
+
+export default class StartPage extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      items: [
+        firstScreen(),
+        secondScreen(),
+        thirdScreen(),
+      ]
+    }
+  }
   render () {
-    const images = [
-      'https://placeimg.com/640/640/nature',
-      'https://placeimg.com/640/640/nature',
-      'https://placeimg.com/640/640/nature'
-    ]
     return (
       <View style={styles.view}>
 
-        <View style={{flex: 0.7}}>
-          <ImageSlider
-            loopBothSides
-            autoPlayWithInterval={3000}
-            images={images}/>
+        <View style={{flex: 0.75}}>
+          <ImageSlider items={this.state.items}/>
         </View>
 
-        <View style={{flex: 0.08, justifyContent: 'flex-start', paddingTop: 15}}>
+        <View style={{flex: 0.083, justifyContent: 'flex-start', paddingTop: 15}}>
           <Text style={styles.txt}>
             What are you waiting for?
           </Text>
@@ -70,17 +124,3 @@ export default class StartPage extends React.Component {
     )
   }
 }
-/*
- <View style={{justifyContent: 'center', alignItems: 'center', backgroundColor: 'black'}}>
- <Image source={require('../Images/Doolu_-_Logos_-_Primary_-_White.png')} style={styles.img}/>
- <View>
- <Text style={styles.title}>
- Personal Service.
- </Text>
- <Text style={styles.title}>
- Trusted Help
- </Text>
- </View>
- </View>
-
- */
