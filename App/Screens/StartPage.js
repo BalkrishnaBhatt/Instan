@@ -7,6 +7,57 @@ import ImageSlider from '../Components/ImageSlider'
 
 import styles from './styles/StartPage'
 
+const firstScreen = () => <View style={{alignItems: 'center',}}>
+  <Image source={require('../../App/Images/Doolu_-_Logos_-_Primary_-_White.png')} style={{height: 24, width: 88}}/>
+  <Text style={styles.title1}>
+    Personal Service.
+  </Text>
+  <Text style={styles.title2}>
+    Trusted Help.
+  </Text>
+  <Text style={styles.title3}>
+    Find an assistant at the
+  </Text>
+
+  <Text style={styles.title4}>
+    tip of your fingers
+  </Text>
+
+</View>
+
+const secondScreen = () => <View style={{alignItems: 'center',}}>
+  <Image source={require('../../App/Images/Doolu_-_Logos_-_Primary_-_White.png')} style={{height: 24, width: 88}}/>
+  <Text style={styles.title1}>
+    Find trusted help
+  </Text>
+  <Text style={styles.title2}>
+    in your community
+  </Text>
+  <Text style={styles.title3}>
+    Local, verified and trusted help to lend a
+  </Text>
+  <Text style={styles.title4}>
+    hand with your tasks
+  </Text>
+</View>
+
+const thirdScreen = () => <View style={{alignItems: 'center',}}>
+  <Image source={require('../../App/Images/Doolu_-_Logos_-_Primary_-_White.png')} style={{height: 24, width: 88}}/>
+  <Text style={styles.title1}>
+    Post and pay
+  </Text>
+  <Text style={styles.title2}>
+    easily
+  </Text>
+  <Text style={styles.title3}>
+    It’s safe, secure and simple to post
+  </Text>
+  <Text style={styles.title4}>
+    and pay for the help on our app
+  </Text>
+
+</View>
+
 export default class StartPage extends Component {
 
   constructor (props) {
@@ -14,15 +65,9 @@ export default class StartPage extends Component {
 
     this.state = {
       items: [
-        <Text style={{color: '#f00'}}>
-          {`Hello  1`}
-        </Text>,
-        <Text style={{color: '#0f0'}}>
-          {`Hello  2`}
-        </Text>,
-        <Text style={{color: '#00f'}}>
-          {`Hello  3`}
-        </Text>,
+        firstScreen(),
+        secondScreen(),
+        thirdScreen(),
       ]
     }
   }
