@@ -1,7 +1,19 @@
 import React, { Component } from 'react'
-import { View, Text, Button, Image, KeyboardAvoidingView, TouchableOpacity, Dimensions, StyleSheet, TextInput } from 'react-native'
+import {
+  View,
+  Text,
+  Button,
+  Image,
+  KeyboardAvoidingView,
+  TouchableOpacity,
+  Dimensions,
+  StyleSheet,
+  TextInput
+} from 'react-native'
 
 import PhoneInput from 'react-native-phone-input'
+
+import MobileNumber from '../Components/EnterMobileNumber/MobileNumber'
 
 import ImageSlider from '../Components/ImageSlider'
 
@@ -86,16 +98,7 @@ export default class StartPage extends React.Component {
         </View>
 
         <View style={{flex: 0.13}}>
-          <View style={styles.viewLine}>
-
-            <KeyboardAvoidingView enabled style={{flex: .27}}>
-              <PhoneInput ref='phone' style={{paddingLeft: 18}}
-                          textStyle={styles.phoneinput}
-                          flagStyle={{height: 32, borderRadius: 16, backgroundColor: 'white'}}/>
-            </KeyboardAvoidingView>
-            <TextInput style={styles.txtInput} keyboardType="phone-pad" placeholder='Enter your mobile number'
-                       placeholderTextColor="#828282" underlineColorAndroid={'transparent'}/>
-          </View>
+          <MobileNumber/>
         </View>
 
         <View style={{flex: 0.075, justifyContent: 'flex-end', paddingBottom: 20}}>
@@ -110,3 +113,17 @@ export default class StartPage extends React.Component {
     )
   }
 }
+
+
+{/*<View style={{flex: 0.13}}>
+ <View style={styles.viewLine}>
+
+ <KeyboardAvoidingView enabled style={{flex: .27}}>
+ <PhoneInput ref='phone' style={{paddingLeft: 18}}
+ textStyle={styles.phoneinput}
+ flagStyle={{height: 32, borderRadius: 16, backgroundColor: 'white'}}/>
+ </KeyboardAvoidingView>
+ <TextInput style={styles.txtInput} keyboardType="phone-pad" placeholder='Enter your mobile number'
+ placeholderTextColor="#828282" underlineColorAndroid={'transparent'}/>
+ </View>
+ </View>*/}
