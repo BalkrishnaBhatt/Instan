@@ -8,21 +8,9 @@ export default StyleSheet.create({
   title1: {
     color: '#ffffff',
     fontSize: 35,
-    fontFamily: 'Helvetica NeueLTPro_Lt',
-    paddingTop: 20
-  },
-  title2: {
-    color: '#ffffff',
-    fontSize: 35,
     fontFamily: 'Helvetica NeueLTPro_Lt'
   },
-  title3: {
-    color: '#ffffff',
-    fontSize: 18,
-    fontFamily: 'Helvetica NeueLTPro_Th',
-    paddingTop: 20
-  },
-  title4: {
+  title2: {
     color: '#ffffff',
     fontSize: 18,
     fontFamily: 'Helvetica NeueLTPro_Th'
