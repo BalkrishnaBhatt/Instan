@@ -13,7 +13,7 @@ import {
 
 import PhoneInput from 'react-native-phone-input'
 
-import MobileNumber from '../Components/EnterMobileNumber/MobileNumber'
+import MobileNumberInput from '../Components/EnterMobileNumber/MobileNumberInput'
 
 import ImageSlider from '../Components/ImageSlider'
 
@@ -98,7 +98,7 @@ export default class StartPage extends React.Component {
         </View>
 
         <View style={{flex: 0.13}}>
-          <MobileNumber/>
+          <MobileNumberInput/>
         </View>
 
         <View style={{flex: 0.075, justifyContent: 'flex-end', paddingBottom: 20}}>
@@ -114,7 +114,6 @@ export default class StartPage extends React.Component {
   }
 }
 
-
 {/*<View style={{flex: 0.13}}>
  <View style={styles.viewLine}>
 
@@ -126,4 +125,5 @@ export default class StartPage extends React.Component {
  <TextInput style={styles.txtInput} keyboardType="phone-pad" placeholder='Enter your mobile number'
  placeholderTextColor="#828282" underlineColorAndroid={'transparent'}/>
  </View>
- </View>*/}
+ </View>*/
+}

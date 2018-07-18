@@ -12,13 +12,20 @@ let {width, height} = Dimensions.get('window')
 
 import Icon from 'react-native-vector-icons/Entypo'
 
-import styles from './styles/mobileNumber'
+import styles from './styles/mobileNumberInput'
 
 export default class MobileNumber extends Component {
   render () {
     return (
       <View
-        style={{backgroundColor: '#fff', flex: 1, flexDirection: 'row', alignItems: 'center', borderBottomWidth: 1, borderColor: '#181818'}}>
+        style={{
+          backgroundColor: '#fff',
+          flex: 1,
+          flexDirection: 'row',
+          alignItems: 'center',
+          borderBottomWidth: 1,
+          borderColor: '#181818'
+        }}>
 
         <TouchableOpacity style={{paddingLeft: 20}}>
           <Image source={{uri: 'https://cdn.countryflags.com/thumbs/canada/flag-3d-round-250.png'}}
