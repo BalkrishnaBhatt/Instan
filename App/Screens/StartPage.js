@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {
   View,
+  Modal,
   Text,
   Button,
   Image,
@@ -17,6 +18,7 @@ let {width, height} = Dimensions.get('window')
 
 import MobileNumberInput from '../Components/EnterMobileNumber/MobileNumberInput'
 import ImageSlider from '../Components/ImageSlider'
+import CountrySelect from '../Screens/CountrySelect'
 import { firstScreen, secondScreen, thirdScreen } from '../Components/startPage/SliderComponents'
 
 import styles from './styles/StartPage'
@@ -32,7 +34,8 @@ export default class StartPage extends Component {
         secondScreen(),
         thirdScreen(),
       ],
-      modalVisible: false
+      modalVisible: false,
+      CountryModal: false
     }
 
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
@@ -59,7 +62,7 @@ export default class StartPage extends Component {
 
   render () {
 
-    let {modalVisible} = this.state
+    let {modalVisible, CountryModal} = this.state
 
     return (
       <View style={[styles.view, {alignItems: 'flex-start'}]}>
@@ -69,6 +72,16 @@ export default class StartPage extends Component {
           barStyle={modalVisible ? 'dark-content' : 'light-content'}
           backgroundColor="rgba(0, 0, 0, 0)"
           animated/>
+
+        <Modal
+          animationType="none"
+          transparent={false}
+          visible={CountryModal}
+          onRequestClose={() => {
+            alert('Modal has been closed.')
+          }}>
+          <CountrySelect onClose={() => this.setState({CountryModal: false})}/>
+        </Modal>
 
         {
           modalVisible && <TouchableOpacity style={{flex: 0.09, padding: 20, paddingTop: 40, paddingBottom: 5}}
@@ -106,6 +119,7 @@ export default class StartPage extends Component {
             setRef={this.setRef}
             modalVisible={modalVisible}
             onFocusHandle={() => this.setState({modalVisible: true})}
+            onFlagPress={() => this.setState({CountryModal: true})}
           />
 
           <View
@@ -129,22 +143,4 @@ export default class StartPage extends Component {
       </View>
     )
   }
-}
-
-{/*<View style={{flex: modalVisible ? 1 : 0.13, justifyContent: 'flex-start'}}>
- <View style={styles.viewLine}>
- <View style={{flex: .27}}
- onPress={() => this.setState({modalVisible: !this.state.modalVisible})}>
- <PhoneInput ref='phone' style={{paddingLeft: 18}}
- textStyle={styles.phoneinput}
- flagStyle={{height: 32, borderRadius: 16, backgroundColor: 'white'}}/>
- </View>
- <TextInput style={styles.txtInput}
- keyboardType='numeric'
- placeholder='Enter your mobile number'
- ref="input"
- onFocus={() => this.setState({modalVisible: !this.state.modalVisible})}
- placeholderTextColor="#828282" underlineColorAndroid={'transparent'}/>
- </View>
- </View>*/
 }

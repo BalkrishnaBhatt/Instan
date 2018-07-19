@@ -21,20 +21,12 @@ export default StyleSheet.create({
     color: '#181818',
     fontSize: 22,
     paddingLeft: 20,
-    padding:5
+    padding: 5
   },
   flag: {
     backgroundColor: '#fff',
     flexDirection: 'row',
-    flex: 0.1,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-
-  flag1: {
-    backgroundColor: '#fff',
-    flexDirection: 'row',
-    padding:5,
+    padding: 10,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -45,10 +37,10 @@ export default StyleSheet.create({
     borderRadius: 16
   },
 
-  touch:{
+  touch: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft:10
+    paddingLeft: 10
   },
 
   txtInput: {

@@ -17,9 +17,10 @@ import styles from './styles/mobileNumberInput'
 export default MobileNumber = (props) =>
   <View style={[styles.container, {width: props.modalVisible ? width - 50 : width}]}>
 
-    <TouchableOpacity style={{padding: 5, paddingLeft: props.modalVisible ? 0 : 20}}  >
+    <TouchableOpacity style={{padding: 5, paddingLeft: props.modalVisible ? 0 : 20}}
+                      onPress={() => props.onFlagPress()}>
       <Image source={{uri: 'https://cdn.countryflags.com/thumbs/canada/flag-3d-round-250.png'}}
-             style={props.modalVisible ? styles.img40 : styles.img32} />
+             style={props.modalVisible ? styles.img40 : styles.img32}/>
     </TouchableOpacity>
 
     { props.modalVisible && <Icon name={'chevron-thin-down'} size={15} style={{padding: 8}}/>}
