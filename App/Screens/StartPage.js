@@ -4,73 +4,25 @@ import {
   Text,
   Button,
   Image,
-  KeyboardAvoidingView,
+  Keyboard,
+  StatusBar,
   TouchableOpacity,
   Dimensions,
   StyleSheet,
-  TextInput
+  TextInput,
+  BackHandler
 } from 'react-native'
 
-import PhoneInput from 'react-native-phone-input'
+let {width, height} = Dimensions.get('window')
 
-import MobileNumber from '../Components/EnterMobileNumber/MobileNumberInput'
-
+import MobileNumberInput from '../Components/EnterMobileNumber/MobileNumberInput'
 import ImageSlider from '../Components/ImageSlider'
+import { firstScreen, secondScreen, thirdScreen } from '../Components/startPage/SliderComponents'
 
 import styles from './styles/StartPage'
+import Icon from 'react-native-vector-icons/Entypo'
 
-const firstScreen = () => <View style={{alignItems: 'center',}}>
-  <Image source={require('../../App/Images/Doolu_-_Logos_-_Primary_-_White.png')} style={{height: 24, width: 88}}/>
-  <Text style={styles.title1}>
-    Personal Service.
-  </Text>
-  <Text style={styles.title2}>
-    Trusted Help.
-  </Text>
-  <Text style={styles.title3}>
-    Find an assistant at the
-  </Text>
-
-  <Text style={styles.title4}>
-    tip of your fingers
-  </Text>
-
-</View>
-
-const secondScreen = () => <View style={{alignItems: 'center',}}>
-  <Image source={require('../../App/Images/Doolu_-_Logos_-_Primary_-_White.png')} style={{height: 24, width: 88}}/>
-  <Text style={styles.title1}>
-    Find trusted help
-  </Text>
-  <Text style={styles.title2}>
-    in your community
-  </Text>
-  <Text style={styles.title3}>
-    Local, verified and trusted help to lend a
-  </Text>
-  <Text style={styles.title4}>
-    hand with your tasks
-  </Text>
-</View>
-
-const thirdScreen = () => <View style={{alignItems: 'center',}}>
-  <Image source={require('../../App/Images/Doolu_-_Logos_-_Primary_-_White.png')} style={{height: 24, width: 88}}/>
-  <Text style={styles.title1}>
-    Post and pay
-  </Text>
-  <Text style={styles.title2}>
-    easily
-  </Text>
-  <Text style={styles.title3}>
-    It’s safe, secure and simple to post
-  </Text>
-  <Text style={styles.title4}>
-    and pay for the help on our app
-  </Text>
-
-</View>
-
-export default class StartPage extends React.Component {
+export default class StartPage extends Component {
   constructor (props) {
     super(props)
 
@@ -79,51 +31,120 @@ export default class StartPage extends React.Component {
         firstScreen(),
         secondScreen(),
         thirdScreen(),
-      ]
+      ],
+      modalVisible: false
     }
+
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
+    this.setRef = this.setRef.bind(this)
+  }
+
+  componentWillMount () {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick)
+  }
+
+  componentWillUnmount () {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick)
+  }
+
+  handleBackButtonClick () {
+    this.childInput.blur()
+    this.setState({modalVisible: false})
+    return true
+  }
+
+  setRef (input) {
+    this.childInput = input
   }
 
   render () {
+
+    let {modalVisible} = this.state
+
     return (
-      <View style={styles.view}>
+      <View style={[styles.view, {alignItems: 'flex-start'}]}>
 
-        <View style={{flex: 0.75}}>
-          <ImageSlider items={this.state.items}/>
-        </View>
+        <StatusBar
+          translucent
+          barStyle={modalVisible ? 'dark-content' : 'light-content'}
+          backgroundColor="rgba(0, 0, 0, 0)"
+          animated/>
 
-        <View style={styles.txt1}>
-          <Text style={styles.txt}>
-            What are you waiting for?
-          </Text>
-        </View>
-
-        <View style={{flex: 0.13}}>
-          <MobileNumber />
-        </View>
-
-        <View style={{flex: 0.075, justifyContent: 'flex-end', paddingBottom: 20}}>
-          <TouchableOpacity>
-            <Text style={styles.txt3}>
-              Or connect using social account.
-            </Text>
+        {
+          modalVisible && <TouchableOpacity style={{flex: 0.09, padding: 20, paddingTop: 40, paddingBottom: 5}}
+                                            onPress={() => {
+                                              this.childInput.blur()
+                                              this.setState({modalVisible: false})
+                                            }}>
+            <Icon name={'chevron-thin-left'} size={25}/>
           </TouchableOpacity>
+        }
+
+        {
+          modalVisible && <View style={{padding: 5, paddingBottom: 10, paddingLeft: 25}}>
+            <Text style={[styles.title2, {fontSize: 24, color: '#000'}]}>Enter your mobile number</Text>
+          </View>
+        }
+
+        {
+          !modalVisible && <View style={{flex: 0.75, width: width}}>
+            <ImageSlider items={this.state.items}/>
+          </View>
+        }
+
+        {
+          !modalVisible && <View style={styles.txt1}>
+            <Text style={styles.txt}>
+              What are you waiting for?
+            </Text>
+          </View>
+        }
+
+        <View style={{flex: 0.18, paddingLeft: modalVisible ? 25 : 0, paddingRight: modalVisible ? 25 : 0}}>
+
+          <MobileNumberInput
+            setRef={this.setRef}
+            modalVisible={modalVisible}
+            onFocusHandle={() => this.setState({modalVisible: true})}
+          />
+
+          <View
+            style={{
+              paddingBottom: modalVisible ? 0 : 20,
+              borderBottomWidth: modalVisible ? 1 : .5,
+              borderColor: '#181818'
+            }}
+          />
         </View>
 
+        {
+          !modalVisible && <View style={{flex: 0.04, alignItems: 'center', paddingBottom: 20}}>
+            <TouchableOpacity>
+              <Text style={styles.txt3}>
+                Or connect using social account.
+              </Text>
+            </TouchableOpacity>
+          </View>
+        }
       </View>
     )
   }
 }
 
-
-{/*<View style={{flex: 0.13}}>
+{/*<View style={{flex: modalVisible ? 1 : 0.13, justifyContent: 'flex-start'}}>
  <View style={styles.viewLine}>
-
- <KeyboardAvoidingView enabled style={{flex: .27}}>
+ <View style={{flex: .27}}
+ onPress={() => this.setState({modalVisible: !this.state.modalVisible})}>
  <PhoneInput ref='phone' style={{paddingLeft: 18}}
  textStyle={styles.phoneinput}
  flagStyle={{height: 32, borderRadius: 16, backgroundColor: 'white'}}/>
- </KeyboardAvoidingView>
- <TextInput style={styles.txtInput} keyboardType="phone-pad" placeholder='Enter your mobile number'
+ </View>
+ <TextInput style={styles.txtInput}
+ keyboardType='numeric'
+ placeholder='Enter your mobile number'
+ ref="input"
+ onFocus={() => this.setState({modalVisible: !this.state.modalVisible})}
  placeholderTextColor="#828282" underlineColorAndroid={'transparent'}/>
  </View>
- </View>*/}
+ </View>*/
+}

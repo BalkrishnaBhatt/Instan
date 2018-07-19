@@ -6,7 +6,7 @@ import StartPage from '../Screens/StartPage'
 import CountrySelect from '../Screens/CountrySelect'
 
 const PrimaryNav = StackNavigator({
-  LaunchScreen: {screen: CountrySelect}
+  LaunchScreen: {screen: StartPage}
 }, {
   headerMode: 'none',
   initialRouteName: 'LaunchScreen',
