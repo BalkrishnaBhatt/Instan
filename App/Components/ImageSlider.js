@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Animated, View, Text, StyleSheet, StatusBar, ImageBackground, Dimensions, ScrollView } from 'react-native'
+import {Animated, View, Text, StyleSheet, StatusBar, ImageBackground, Dimensions, ScrollView} from 'react-native'
 import _ from 'underscore'
 
 import styles from './Styles/ImageSlider'
