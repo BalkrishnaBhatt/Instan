@@ -11,17 +11,19 @@ import {
 } from 'react-native'
 import _ from 'underscore'
 
-import Icon from 'react-native-vector-icons/EvilIcons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import EntypoIcon from 'react-native-vector-icons/Entypo'
 
 import styles from './styles/CountrySelect'
 
 const CountryTile = ({country, onCountrySelect, isActive}) => (
+
+
   <TouchableOpacity style={styles.flag} onPress={() => onCountrySelect()}>
     <View style={{flexDirection: 'row'}}>
-      <TouchableOpacity style={{paddingLeft: 30}}>
+      <TouchableOpacity style={{paddingLeft: 25, padding: 5,}}>
         <Image source={{uri: country.flag}}
-               style={styles.img}/>
+               style={styles.img40}/>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.touch}>
@@ -30,8 +32,8 @@ const CountryTile = ({country, onCountrySelect, isActive}) => (
         </Text>
       </TouchableOpacity>
     </View>
-    <Icon name={isActive ? 'check' : 'plus'}
-          color={isActive ? '#33cc33' : '#181818'} style={styles.btn} size={30}/>
+    <Icon name={isActive ? 'check-circle-outline' : 'checkbox-blank-circle-outline'}
+          color={isActive ? '#33cc33' : '#cccccc'} style={styles.btn} size={30}/>
   </TouchableOpacity>)
 
 export default class CountrySelect extends Component {
@@ -59,42 +61,39 @@ export default class CountrySelect extends Component {
         name: 'Canada'
       },
       activeCountry: 0,
+      modalVisible: true,
     }
   }
 
   render () {
 
-    let {countries, activeCountry, selectedCountry} = this.state
+    let {countries, activeCountry, selectedCountry, modalVisible} = this.state
 
     return (
       <View style={styles.view}>
 
-        <StatusBar
-          translucent
-          barStyle={'dark-content'}
-          backgroundColor="rgba(0, 0, 0, 0)"
-          animated/>
+        <TouchableOpacity onPress={() => this.props.onClose()}
+                          style={{flex: 0.1, padding: 20, paddingTop: 17, paddingBottom: 5, alignItems: 'flex-start'}}>
+          <EntypoIcon name={'chevron-thin-left'} size={25}></EntypoIcon>
+        </TouchableOpacity>
 
-        <View style={{flex: 0.12, padding: 5}}>
-          <TouchableOpacity style={styles.touchable} onPress={() => this.props.onClose()}>
-            <EntypoIcon name={'chevron-thin-left'} style={styles.btn} size={25}/>
-          </TouchableOpacity>
+
+        <View style={{padding: 5, paddingBottom: 10, paddingTop: 30, paddingLeft: 25,}}>
+          <Text style={{
+            fontSize: 24, color: '#000',
+            fontFamily: 'Helvetica NeueLTPro_Th'
+          }}>Currently Selected</Text>
         </View>
 
-        <View style={{flex: 0.10}}>
-          <Text style={styles.txt}>
-            Currently Selected
-          </Text>
-        </View>
-
-        <CountryTile country={selectedCountry} isActive={true} onCountrySelect={() => {return}}/>
+        <CountryTile style={{borderBottomWidth: 1, borderColor: '#181818', margin: 26,}} country={selectedCountry}
+                     isActive={true} onCountrySelect={() => {return}}/>
 
         <View style={{
           borderBottomWidth: 1,
-          borderColor: '#181818', margin: 26, flex: 0.001
+          borderColor: '#181818', margin: 26, marginTop: 0
         }}/>
 
-        <View style={{flex: 0.10}}>
+        <View style={{flex: 0.15}}>
           <Text style={styles.txt}>
             Available Countries
           </Text>
@@ -109,4 +108,29 @@ export default class CountrySelect extends Component {
       </View>
     )
   }
+}
+
+{/*
+
+ <TouchableOpacity style={{padding: 5, paddingLeft: props.modalVisible ? 0 : 20}}
+ onPress={() => props.onFlagPress()}>
+ <Image source={{uri: 'https://cdn.countryflags.com/thumbs/canada/flag-3d-round-250.png'}}
+ style={props.modalVisible ? styles.img40 : styles.img32}/>
+ </TouchableOpacity>
+
+
+
+ <TouchableOpacity style={{flex: 0.09, padding: 20, paddingTop: 40, paddingBottom: 5}}
+ <EntypoIcon name={'chevron-thin-left'} size={25}/>
+ </TouchableOpacity>
+
+ <View style={{flex: 0.12, padding: 10}}>
+ <TouchableOpacity style={styles.touchable} onPress={() => this.props.onClose()}>
+ <EntypoIcon name={'chevron-thin-left'} style={styles.btn} size={25}/>
+ </TouchableOpacity>
+ </View>
+
+
+
+ */
 }

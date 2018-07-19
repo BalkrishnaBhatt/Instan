@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   view: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
   },
   back: {
     height: 18,
@@ -21,16 +21,20 @@ export default StyleSheet.create({
     color: '#181818',
     fontSize: 22,
     paddingLeft: 20,
-    padding: 5
+    padding:5,
   },
   flag: {
     backgroundColor: '#fff',
     flexDirection: 'row',
-    padding: 10,
+    padding: 5,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-
+  img40: {
+    width: 40,
+    height: 40,
+    borderRadius: 20
+  },
   img: {
     width: 32,
     height: 32,

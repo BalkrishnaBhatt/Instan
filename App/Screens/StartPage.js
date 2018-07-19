@@ -22,6 +22,7 @@ import CountrySelect from '../Screens/CountrySelect'
 import { firstScreen, secondScreen, thirdScreen } from '../Components/startPage/SliderComponents'
 
 import styles from './styles/StartPage'
+
 import Icon from 'react-native-vector-icons/Entypo'
 
 export default class StartPage extends Component {
@@ -56,6 +57,12 @@ export default class StartPage extends Component {
     return true
   }
 
+  _handleFlagPress () {
+    let {modalVisible} = this.state
+    !modalVisible ? this.setState({modalVisible: true}) : this.setState({CountryModal: true})
+    return true
+  }
+
   setRef (input) {
     this.childInput = input
   }
@@ -74,12 +81,10 @@ export default class StartPage extends Component {
           animated/>
 
         <Modal
-          animationType="none"
+          animationType="fade"
           transparent={false}
           visible={CountryModal}
-          onRequestClose={() => {
-            alert('Modal has been closed.')
-          }}>
+          onRequestClose={() => this.setState({CountryModal: false})}>
           <CountrySelect onClose={() => this.setState({CountryModal: false})}/>
         </Modal>
 
@@ -119,7 +124,7 @@ export default class StartPage extends Component {
             setRef={this.setRef}
             modalVisible={modalVisible}
             onFocusHandle={() => this.setState({modalVisible: true})}
-            onFlagPress={() => this.setState({CountryModal: true})}
+            onFlagPress={() => this._handleFlagPress()}
           />
 
           <View
