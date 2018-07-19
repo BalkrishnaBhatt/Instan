@@ -3,10 +3,10 @@ import LaunchScreen from '../Containers/LaunchScreen'
 import OpenScreen from '../Screens/OpenScreen'
 import styles from './Styles/NavigationStyles'
 import StartPage from '../Screens/StartPage'
-import EnterMobileNumber from '../Screens/EnterMobileNumber'
+import CountrySelect from '../Screens/CountrySelect'
 
 const PrimaryNav = StackNavigator({
-  LaunchScreen: {screen: StartPage}
+  LaunchScreen: {screen: CountrySelect}
 }, {
   headerMode: 'none',
   initialRouteName: 'LaunchScreen',

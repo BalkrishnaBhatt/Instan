@@ -13,7 +13,7 @@ import {
 
 import PhoneInput from 'react-native-phone-input'
 
-import MobileNumber from '../Components/EnterMobileNumber/MobileNumber'
+import MobileNumber from '../Components/EnterMobileNumber/MobileNumberInput'
 
 import ImageSlider from '../Components/ImageSlider'
 
@@ -98,7 +98,7 @@ export default class StartPage extends React.Component {
         </View>
 
         <View style={{flex: 0.13}}>
-          <MobileNumber/>
+          <MobileNumber />
         </View>
 
         <View style={{flex: 0.075, justifyContent: 'flex-end', paddingBottom: 20}}>
