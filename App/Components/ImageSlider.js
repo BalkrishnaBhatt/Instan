@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Animated, View, Text, StyleSheet, StatusBar, ImageBackground, Dimensions, ScrollView} from 'react-native'
+import { Animated, View, Text, StyleSheet, StatusBar, ImageBackground, Dimensions, ScrollView } from 'react-native'
 import _ from 'underscore'
 
 import styles from './Styles/ImageSlider'
@@ -20,7 +20,7 @@ export default class ImageSlider extends Component {
     _.map(items, (item, i) => {
 
         const thisImage = (
-          <View style={{backgroundColor: '#0009', width: deviceWidth, justifyContent: 'center', alignItems: 'center'}}>
+          <View key={`item${i}`} style={{backgroundColor: '#0009', width: deviceWidth, justifyContent: 'center', alignItems: 'center'}}>
             {item}
           </View>
         )
@@ -61,6 +61,8 @@ export default class ImageSlider extends Component {
           </View>
         )
         barArray.push(thisBar)
+
+        return true
       }
     )
 
