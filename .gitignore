@@ -43,6 +43,7 @@ yarn-error.log
 #
 app/
 .log
+.keystore
 
 # BUCK
 buck-out/

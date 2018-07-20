@@ -40,7 +40,7 @@ export default class SocialConnect extends Component {
 
   render () {
     return (
-      <View style={[styles.view, {paddingTop: StatusBar.currentHeight}]}>
+      <View style={[styles.view, {paddingTop: 20 + StatusBar.currentHeight}]}>
 
         <StatusBar
           translucent
@@ -59,27 +59,36 @@ export default class SocialConnect extends Component {
           </Text>
         </View>
 
-        <TouchableOpacity>
-          <View style={styles.fbview}>
-            <View style={styles.fb}>
-              <Image style={styles.fbImage} source={require('../Images/facebook-icon-png.png')}/>
-              <Text style={styles.fbtxt}>
-                Continue with Facebook
-              </Text>
-            </View>
+        <TouchableOpacity style={styles.socialTile}>
+          <Image style={styles.fbImage} source={require('../Images/facebook-icon.png')}/>
+
+          <View style={styles.socialTextContainer}>
+            <Text style={styles.fbtxt}>
+              Continue with Facebook
+            </Text>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <View style={styles.fbview}>
-            <View style={styles.google}>
-              <Image style={styles.fbImage} source={require('../Images/google-icon-png.png')}/>
-              <Text style={styles.fbtxt}>
-                Continue with Google
-              </Text>
-            </View>
+        <TouchableOpacity style={[styles.socialTile, {backgroundColor: '#4885ed'}]}>
+          <Image style={styles.fbImage} source={require('../Images/google-icon.png')}/>
+
+          <View style={styles.socialTextContainer}>
+            <Text style={styles.fbtxt}>
+              Continue with Google
+            </Text>
           </View>
         </TouchableOpacity>
+
+        {/*<TouchableOpacity>
+         <View style={styles.fbview}>
+         <View style={styles.google}>
+         <Image style={styles.fbImage} source={require('../Images/google-icon-png.png')}/>
+         <Text style={styles.fbtxt}>
+         Continue with Google
+         </Text>
+         </View>
+         </View>
+         </TouchableOpacity>*/}
 
       </View>
     )

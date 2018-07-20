@@ -75,9 +75,14 @@ export default class StartPage extends Component {
   }
 
   handleBackButtonClick () {
-    this.childInput.blur()
-    this.setState({modalVisible: false})
-    return true
+    let {modalVisible} = this.state
+
+    if (modalVisible) {
+      this.childInput.blur()
+      this.setState({modalVisible: false})
+      return true
+    }
+
   }
 
   _handleFlagPress () {
