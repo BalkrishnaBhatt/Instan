@@ -24,6 +24,7 @@ import { firstScreen, secondScreen, thirdScreen } from '../Components/startPage/
 import styles from './styles/StartPage'
 
 import Icon from 'react-native-vector-icons/Entypo'
+import TouchableItem from '../../node_modules/react-navigation/lib-rn/views/TouchableItem'
 
 export default class StartPage extends Component {
   constructor (props) {
@@ -54,6 +55,7 @@ export default class StartPage extends Component {
   handleBackButtonClick () {
     this.childInput.blur()
     this.setState({modalVisible: false})
+    this.props.navigation.goBack()
     return true
   }
 
@@ -137,13 +139,13 @@ export default class StartPage extends Component {
         </View>
 
         {
-          !modalVisible && <View style={{flex: 0.04, alignItems: 'center', paddingBottom: 20}}>
-            <TouchableOpacity>
+          !modalVisible && <TouchableOpacity style={{flex: 0.04, alignItems: 'center', paddingBottom: 20}} onPress={()=>this.props.navigation.navigate('SocialConnect') }>
+
               <Text style={styles.txt3}>
                 Or connect using social account.
               </Text>
-            </TouchableOpacity>
-          </View>
+
+          </TouchableOpacity>
         }
       </View>
     )

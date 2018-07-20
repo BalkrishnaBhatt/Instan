@@ -109,28 +109,3 @@ export default class CountrySelect extends Component {
     )
   }
 }
-
-{/*
-
- <TouchableOpacity style={{padding: 5, paddingLeft: props.modalVisible ? 0 : 20}}
- onPress={() => props.onFlagPress()}>
- <Image source={{uri: 'https://cdn.countryflags.com/thumbs/canada/flag-3d-round-250.png'}}
- style={props.modalVisible ? styles.img40 : styles.img32}/>
- </TouchableOpacity>
-
-
-
- <TouchableOpacity style={{flex: 0.09, padding: 20, paddingTop: 40, paddingBottom: 5}}
- <EntypoIcon name={'chevron-thin-left'} size={25}/>
- </TouchableOpacity>
-
- <View style={{flex: 0.12, padding: 10}}>
- <TouchableOpacity style={styles.touchable} onPress={() => this.props.onClose()}>
- <EntypoIcon name={'chevron-thin-left'} style={styles.btn} size={25}/>
- </TouchableOpacity>
- </View>
-
-
-
- */
-}
