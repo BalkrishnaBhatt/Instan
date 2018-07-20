@@ -1,10 +1,11 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+const {width, height} = Dimensions.get('window')
 
 export default StyleSheet.create({
   view: {
     flex: 1,
+    height: height,
     alignItems: 'center',
-    textAlign: 'center',
     padding: 5,
     backgroundColor: '#ffffff'
   },
