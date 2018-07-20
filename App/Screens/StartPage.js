@@ -27,7 +27,6 @@ import OpenScreen from '../Screens/OpenScreen'
 import styles from './styles/StartPage'
 
 import Icon from 'react-native-vector-icons/Entypo'
-import TouchableItem from '../../node_modules/react-navigation/lib-rn/views/TouchableItem'
 
 export default class StartPage extends Component {
   constructor (props) {
@@ -78,7 +77,6 @@ export default class StartPage extends Component {
   handleBackButtonClick () {
     this.childInput.blur()
     this.setState({modalVisible: false})
-    this.props.navigation.goBack()
     return true
   }
 
@@ -170,16 +168,38 @@ export default class StartPage extends Component {
             />
           </View>
 
-        {
-          !modalVisible && <TouchableOpacity style={{flex: 0.04, alignItems: 'center', paddingBottom: 20}} onPress={()=>this.props.navigation.navigate('SocialConnect') }>
+          {
+            !modalVisible && <TouchableOpacity style={{flex: 0.04, alignItems: 'center', paddingBottom: 20}}
+                                               onPress={() => this.props.navigation.navigate('SocialConnect') }>
 
               <Text style={styles.txt3}>
                 Or connect using social account.
               </Text>
 
-          </TouchableOpacity>
-        }
-      </View>
-    )
+            </TouchableOpacity>
+          }
+
+          {
+            modalVisible &&
+            <TouchableOpacity style={{
+              bottom: 20,
+              right: 20,
+              position: 'absolute',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: 50,
+              width: 50,
+              borderRadius: 25,
+              backgroundColor: '#888'
+            }}>
+
+              <Icon name={'chevron-thin-right'} color="#fff" size={20}/>
+
+            </TouchableOpacity>
+          }
+        </View>
+      )
+    }
   }
 }

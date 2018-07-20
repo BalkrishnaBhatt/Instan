@@ -7,7 +7,8 @@ import {
   Dimensions,
   StyleSheet,
   TextInput,
-  StatusBar
+  StatusBar,
+  BackHandler
 } from 'react-native'
 
 import _ from 'underscore'
@@ -17,6 +18,25 @@ import Icon from 'react-native-vector-icons/Entypo'
 import styles from './styles/SocialConnect'
 
 export default class SocialConnect extends Component {
+
+  constructor (props) {
+    super(props)
+
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
+  }
+
+  componentWillMount () {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick)
+  }
+
+  componentWillUnmount () {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick)
+  }
+
+  handleBackButtonClick () {
+    this.props.navigation.goBack()
+    return true
+  }
 
   render () {
     return (

@@ -10,7 +10,6 @@ export default StyleSheet.create({
     padding: 20,
     paddingTop: 17,
     paddingBottom: 5,
-    color: '#181818'
   },
   txt: {
     color: '#181818',
@@ -35,7 +34,6 @@ export default StyleSheet.create({
     alignItems:'center',
   },
   fb: {
-    color: '#fff',
     height: 40,
     alignItems:'center',
     justifyContent: 'space-between',
@@ -45,7 +43,6 @@ export default StyleSheet.create({
     backgroundColor: '#3b5998',
   },
   google: {
-    color: '#fff',
     height: 40,
     borderRadius: 20,
     alignItems:'center',
