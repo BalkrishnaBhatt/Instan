@@ -79,17 +79,6 @@ export default class SocialConnect extends Component {
           </View>
         </TouchableOpacity>
 
-        {/*<TouchableOpacity>
-         <View style={styles.fbview}>
-         <View style={styles.google}>
-         <Image style={styles.fbImage} source={require('../Images/google-icon-png.png')}/>
-         <Text style={styles.fbtxt}>
-         Continue with Google
-         </Text>
-         </View>
-         </View>
-         </TouchableOpacity>*/}
-
       </View>
     )
   }

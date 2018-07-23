@@ -5,10 +5,12 @@ import styles from './Styles/NavigationStyles'
 import StartPage from '../Screens/StartPage'
 import CountrySelect from '../Screens/CountrySelect'
 import SocialConnect from '../Screens/SocialConnect'
+import VarificationCode from '../Screens/VarificationCode'
 
 const PrimaryNav = StackNavigator({
   LaunchScreen: {screen: StartPage},
-  SocialConnect: {screen: SocialConnect}
+  SocialConnect: {screen: SocialConnect},
+  VarificationCode:{screen:VarificationCode}
 
 }, {
   headerMode: 'none',

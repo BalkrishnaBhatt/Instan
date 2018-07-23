@@ -174,8 +174,7 @@ export default class StartPage extends Component {
           </View>
 
           {
-            !modalVisible && <TouchableOpacity style={{flex: 0.04, alignItems: 'center', paddingBottom: 20}}
-                                               onPress={() => this.props.navigation.navigate('SocialConnect') }>
+            !modalVisible && <TouchableOpacity style={{flex: 0.04, alignItems: 'center', paddingBottom: 20}} onPress={() => this.props.navigation.navigate('SocialConnect') }>
 
               <Text style={styles.txt3}>
                 Or connect using social account.
@@ -186,7 +185,8 @@ export default class StartPage extends Component {
 
           {
             modalVisible &&
-            <TouchableOpacity style={{
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('VarificationCode')}
+              style={{
               bottom: 20,
               right: 20,
               position: 'absolute',
@@ -197,7 +197,7 @@ export default class StartPage extends Component {
               width: 50,
               borderRadius: 25,
               backgroundColor: '#888'
-            }}>
+            }} >
 
               <Icon name={'chevron-thin-right'} color="#fff" size={20}/>
 

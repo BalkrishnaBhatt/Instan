@@ -14,6 +14,7 @@ export default StyleSheet.create({
     width: 219
   },
   txt: {
-    color: '#2c2c2c'
+    color: '#2c2c2c',
+    fontFamily: 'Helvetica NeueLTPro_Th'
   }
 })
