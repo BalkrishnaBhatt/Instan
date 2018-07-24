@@ -3,6 +3,7 @@ import {
   View,
   Modal,
   Text,
+  ScrollView,
   Image,
   Keyboard,
   StatusBar,
@@ -17,7 +18,6 @@ let {width, height} = Dimensions.get('window')
 
 import styles from './styles/VarificationCode'
 
-import TimerCountdown from 'react-native-timer-countdown'
 import { CountDownText } from 'react-native-countdown-timer-text'
 
 import CodeInput from 'react-native-confirmation-code-input'
@@ -25,7 +25,18 @@ import CodeInput from 'react-native-confirmation-code-input'
 import Icon from 'react-native-vector-icons/Entypo'
 
 export default class VarificationCode extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      isFilled: false
+    }
+  }
+
   render () {
+
+    let {isFilled} = this.state
+
     return (
       <View style={styles.view}>
         <TouchableOpacity
@@ -52,9 +63,9 @@ export default class VarificationCode extends Component {
             inactiveColor='#ccc'
             codeInputStyle={{color: '#181818', fontFamily: 'Helvetica NeueLTPro_Th', fontSize: 35,}}
             activeColor="#181818"
+            onFulfill={(isValid, code) => this.setState({isFilled: isValid})}
           />
         </View>
-
 
         <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', flex: 0.1}}>
           <CountDownText countType='seconds'
@@ -66,7 +77,8 @@ export default class VarificationCode extends Component {
                          endText='Resend code now'
                          intervalText={(sec) => 'Resend code in 00:' + sec }/>
 
-          <TouchableOpacity style={styles.next} onPress={() => this.props.navigation.navigate('PasswordInput')}>
+          <TouchableOpacity style={[styles.next, {backgroundColor: isFilled ? '#181818' : '#c2c2c2'}]}
+                            onPress={() => this.props.navigation.navigate('PasswordInput')}>
             <Icon name={'chevron-thin-right'} color="#fff" size={20}/>
           </TouchableOpacity>
         </View>

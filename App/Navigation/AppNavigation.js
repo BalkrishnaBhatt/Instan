@@ -7,12 +7,14 @@ import CountrySelect from '../Screens/CountrySelect'
 import SocialConnect from '../Screens/SocialConnect'
 import VarificationCode from '../Screens/VarificationCode'
 import PasswordInput from '../Screens/PasswordInput'
+import PasswordReset from '../Screens/PasswordReset'
 
 const PrimaryNav = StackNavigator({
     LaunchScreen: {screen: StartPage},
     SocialConnect: {screen: SocialConnect},
     VarificationCode: {screen: VarificationCode},
-    PasswordInput: {screen: PasswordInput}
+    PasswordInput: {screen: PasswordInput},
+    PasswordReset: {screen: PasswordReset}
   },
   {
     headerMode: 'none',

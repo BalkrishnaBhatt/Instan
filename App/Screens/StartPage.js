@@ -41,6 +41,7 @@ export default class StartPage extends Component {
       modalVisible: false,
       CountryModal: false,
       showOpenScreen: true,
+      mobileNumber: ''
     }
 
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
@@ -97,7 +98,7 @@ export default class StartPage extends Component {
 
   render () {
 
-    let {modalVisible, CountryModal, showOpenScreen} = this.state
+    let {modalVisible, CountryModal, showOpenScreen, mobileNumber} = this.state
 
     const opacity = this.opacityValue.interpolate({
       inputRange: [0, 1],
@@ -137,7 +138,7 @@ export default class StartPage extends Component {
 
           {
             modalVisible && <View style={{padding: 5, paddingBottom: 10, paddingLeft: 25}}>
-              <Text style={[styles.title2, {fontSize: 24, color: '#000'}]}>Enter your mobile number</Text>
+              <Text style={[styles.title2, {fontSize: 20, color: '#000'}]}>Enter your mobile number</Text>
             </View>
           }
 
@@ -162,6 +163,7 @@ export default class StartPage extends Component {
               modalVisible={modalVisible}
               onFocusHandle={() => this.setState({modalVisible: true})}
               onFlagPress={() => this._handleFlagPress()}
+              onEnterNumber={(value) => this.setState({mobileNumber: value})}
             />
 
             <View
@@ -174,7 +176,8 @@ export default class StartPage extends Component {
           </View>
 
           {
-            !modalVisible && <TouchableOpacity style={{flex: 0.04, alignItems: 'center', paddingBottom: 20}} onPress={() => this.props.navigation.navigate('SocialConnect') }>
+            !modalVisible && <TouchableOpacity style={{flex: 0.04, alignItems: 'center', paddingBottom: 20}}
+                                               onPress={() => this.props.navigation.navigate('SocialConnect') }>
 
               <Text style={styles.txt3}>
                 Or connect using social account.
@@ -185,19 +188,19 @@ export default class StartPage extends Component {
 
           {
             modalVisible &&
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('VarificationCode')}
-              style={{
-              bottom: 20,
-              right: 20,
-              position: 'absolute',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: 50,
-              width: 50,
-              borderRadius: 25,
-              backgroundColor: '#888'
-            }} >
+            <TouchableOpacity onPress={() => mobileNumber.length > 10 && this.props.navigation.navigate('VarificationCode')}
+                              style={{
+                                bottom: 20,
+                                right: 20,
+                                position: 'absolute',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                height: 50,
+                                width: 50,
+                                borderRadius: 25,
+                                backgroundColor: mobileNumber.length > 10 ? '#181818' : '#c2c2c2'
+                              }}>
 
               <Icon name={'chevron-thin-right'} color="#fff" size={20}/>
 

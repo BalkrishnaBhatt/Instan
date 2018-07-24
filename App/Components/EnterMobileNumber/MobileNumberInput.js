@@ -33,5 +33,7 @@ export default MobileNumber = (props) =>
                onFocus={() => props.onFocusHandle()}
                placeholder={props.modalVisible ? '(604) 234-5678' : 'Enter your mobile number'}
                placeholderTextColor="#828282"
-               underlineColorAndroid={'transparent'}/>
+               underlineColorAndroid={'transparent'}
+               onChangeText={(value) => props.onEnterNumber(value)}
+    />
   </View>
