@@ -33,7 +33,7 @@ export default class VarificationCode extends Component {
           <Icon name={'chevron-thin-left'} size={25}></Icon>
         </TouchableOpacity>
 
-        <View style={{flexDirection: 'column', flex: 0.1}}>
+        <View style={{flexDirection: 'column', flex: 0.15}}>
           <Text style={styles.txt}>
             Enter the 6-digit code sent to you at
           </Text>
@@ -42,10 +42,11 @@ export default class VarificationCode extends Component {
           </Text>
         </View>
 
-        <View style={{flex: 0.73, marginTop: 10}}>
+        <View style={{flex: 0.68, marginTop: 10}}>
           <CodeInput
             className='border-b'
             space={6}
+            keyboardType='numeric'
             codeLength={6}
             inputPosition='left'
             inactiveColor='#ccc'
@@ -65,7 +66,7 @@ export default class VarificationCode extends Component {
                          endText='Resend code now'
                          intervalText={(sec) => 'Resend code in 00:' + sec }/>
 
-          <TouchableOpacity style={styles.next}>
+          <TouchableOpacity style={styles.next} onPress={() => this.props.navigation.navigate('PasswordInput')}>
             <Icon name={'chevron-thin-right'} color="#fff" size={20}/>
           </TouchableOpacity>
         </View>

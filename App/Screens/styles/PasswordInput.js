@@ -18,12 +18,12 @@ export default StyleSheet.create({
     fontFamily: 'Helvetica NeueLTPro_Th',
     fontSize: 20,
   },
-  count: {
-    fontSize: 14,
-    color: '#181818',
-    fontFamily: 'Helvetica NeueLTPro_Th',
+  txtInput: {
+    width: '100%',
+    fontSize: 16,
     justifyContent: 'center',
-    paddingTop: 10
+    color: '#828282',
+    fontFamily: 'Helvetica NeueLTPro_Th'
   },
   next: {
     alignItems: 'center',
@@ -32,6 +32,11 @@ export default StyleSheet.create({
     width: 50,
     borderRadius: 25,
     backgroundColor: '#828282',
-    margin: 3
-  }
+  },
+  bottom: {
+    fontSize: 16,
+    color: '#181818',
+    fontFamily: 'Helvetica NeueLTPro_Th',
+    paddingTop: 10
+  },
 })
