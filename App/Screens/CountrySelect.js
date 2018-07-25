@@ -65,7 +65,7 @@ export default class CountrySelect extends Component {
 
   render () {
 
-    let {countries, activeCountry, selectedCountry, modalVisible} = this.state
+    let { countries, activeCountry, selectedCountry, modalVisible} = this.state
 
     return (
       <View style={styles.view}>

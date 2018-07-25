@@ -53,10 +53,34 @@ export default class PasswordReset extends Component {
           onRequestClose={() => this.setState({ConfirmAlert: false})}>
           <TouchableOpacity style={{flex: 1}} onPress={() => this.setState({ConfirmAlert: false})}>
             <View style={{flex: .7, backgroundColor: '#0007'}}/>
-            <View style={{flex: .3, backgroundColor: '#fff'}}>
+            <View style={{flex: .3, backgroundColor: '#fff', flexDirection: 'column', padding: 5}}>
+              <Text style={styles.alertTitle}>
+                Email sent!
+              </Text>
 
+              <Text style={styles.alerttxt}>
+                Check your inbox for an email from Doolu with a link to reset your password.
+              </Text>
+
+              <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-evenly',padding:10}}>
+                <TouchableOpacity style={styles.resend}>
+                    <Text style={{color:'#181818',fontSize:18,fontFamily:'Helvetica NeueLTPro_Lt',}}>
+                      Resend
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.done}>
+                  <Text style={{color:'#fff',fontSize:18,fontFamily:'Helvetica NeueLTPro_Lt',}}>
+                    Done
+                  </Text>
+                </TouchableOpacity>
+
+              </View>
             </View>
           </TouchableOpacity>
+
+
+
         </Modal>
 
         <TouchableOpacity
@@ -79,18 +103,9 @@ export default class PasswordReset extends Component {
           </TextInput>
         </View>
 
-        <TouchableOpacity style={{
-          bottom: 20,
-          right: 20,
-          position: 'absolute',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: 50,
-          width: 50,
-          borderRadius: 25,
-          backgroundColor: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(emailId) ? '#181818' : '#828282'
-        }}>
+        <TouchableOpacity
+          onPress={() => this.setState({ConfirmAlert: true}) }
+          style={[styles.abc, {backgroundColor: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(emailId) ? '#181818' : '#828282'}]}>
           <Icon name={'chevron-thin-right'} color="#fff" size={20}/>
         </TouchableOpacity>
       </View>
