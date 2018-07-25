@@ -10,7 +10,7 @@ import PasswordInput from '../Screens/PasswordInput'
 import PasswordReset from '../Screens/PasswordReset'
 
 const PrimaryNav = StackNavigator({
-    LaunchScreen: {screen: PasswordReset},
+    LaunchScreen: {screen: StartPage},
     SocialConnect: {screen: SocialConnect},
     VarificationCode: {screen: VarificationCode},
     PasswordInput: {screen: PasswordInput},
