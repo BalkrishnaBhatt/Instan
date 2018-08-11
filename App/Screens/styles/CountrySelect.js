@@ -19,7 +19,7 @@ export default StyleSheet.create({
   txt: {
     fontFamily: 'Helvetica NeueLTPro_Th',
     color: '#181818',
-    fontSize: 22,
+    fontSize: 20,
     paddingLeft: 20,
     padding:5,
   },

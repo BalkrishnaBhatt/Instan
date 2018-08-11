@@ -8,6 +8,8 @@ import {
   TextInput,
 } from 'react-native'
 
+import CountrySelect from '../../Screens/CountrySelect'
+
 let {width, height} = Dimensions.get('window')
 
 import Icon from 'react-native-vector-icons/Entypo'
@@ -19,11 +21,14 @@ export default MobileNumber = (props) =>
 
     <TouchableOpacity style={{padding: 5, paddingLeft: props.modalVisible ? 0 : 20}}
                       onPress={() => props.onFlagPress()}>
-      <Image source={{uri: 'https://cdn.countryflags.com/thumbs/canada/flag-3d-round-250.png'}}
+      <Image source={{uri: props.activeCountry.flag}}
              style={props.modalVisible ? styles.img40 : styles.img32}/>
     </TouchableOpacity>
 
-    { props.modalVisible && <Icon name={'chevron-thin-down'} size={15} style={{padding: 8}}/>}
+    { props.modalVisible && <TouchableOpacity onPress={() => props.onFlagPress() }>
+      <Icon name={'chevron-thin-down'} size={15} style={{padding: 8}}/>
+    </TouchableOpacity>
+    }
 
     <Text style={[styles.countryCode, {fontSize: props.modalVisible ? 20 : 18}]}>+1</Text>
 

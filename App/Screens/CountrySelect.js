@@ -8,6 +8,7 @@ import {
   StatusBar,
   StyleSheet,
   TextInput,
+  ScrollView
 } from 'react-native'
 import _ from 'underscore'
 
@@ -42,10 +43,6 @@ export default class CountrySelect extends Component {
     this.state = {
       countries: [
         {
-          flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png',
-          name: 'India'
-        },
-        {
           flag: 'https://cdn.countryflags.com/thumbs/canada/flag-3d-round-250.png',
           name: 'Canada'
         },
@@ -54,24 +51,44 @@ export default class CountrySelect extends Component {
           name: 'United States Of America'
         }
       ],
-      selectedCountry: {
-        flag: 'https://cdn.countryflags.com/thumbs/canada/flag-3d-round-250.png',
-        name: 'Canada'
-      },
+      selectedCountry: props.activeCountry,
       activeCountry: 0,
       modalVisible: true,
     }
+
+    this._onCountrySelect = this._onCountrySelect.bind(this)
+  }
+
+  /*async componentDidMount () {
+   await fetch('https://restcountries.eu/rest/v2/all', {headers: {'Access-Control-Allow-Origin': '*'}})
+   .then((result) => result.json())
+   .then((countries) => {
+   console.log(countries, 'sddde')
+   this.setState({countries: countries})
+   })
+   }*/
+
+  componentDidMount () {
+    this.setState({activeCountry: _.findIndex(this.state.countries, this.state.selectedCountry)})
+  }
+
+  _onCountrySelect (i) {
+
+    let {countries} = this.state
+
+    this.props.onCountrySelect(countries[i])
+    this.props.onClose()
   }
 
   render () {
 
-    let { countries, activeCountry, selectedCountry, modalVisible} = this.state
+    let {countries, activeCountry, selectedCountry, modalVisible} = this.state
 
     return (
       <View style={styles.view}>
 
         <StatusBar
-          barStyle={'dark-content'}
+          barStyle={'light-content'}
           backgroundColor="rgba(255, 255, 255, 1)"
           animated/>
 
@@ -83,12 +100,13 @@ export default class CountrySelect extends Component {
 
         <View style={{padding: 5, paddingBottom: 10, paddingTop: 30, paddingLeft: 25,}}>
           <Text style={{
-            fontSize: 24, color: '#000',
+            fontSize: 20, color: '#181818',
             fontFamily: 'Helvetica NeueLTPro_Th'
           }}>Currently Selected</Text>
         </View>
 
-        <CountryTile style={{borderBottomWidth: 1, borderColor: '#181818', margin: 26,}} country={selectedCountry}
+        <CountryTile style={{borderBottomWidth: 1, borderColor: '#181818', margin: 26,}}
+                     country={selectedCountry}
                      isActive={true} onCountrySelect={() => {return}}/>
 
         <View style={{
@@ -102,11 +120,13 @@ export default class CountrySelect extends Component {
           </Text>
         </View>
 
-        {
-          _.map(countries, (country, i) => <CountryTile key={i} country={country}
-                                                        isActive={i === activeCountry}
-                                                        onCountrySelect={() => this.setState({activeCountry: i})}/>)
-        }
+        <ScrollView>
+          {
+            _.map(countries, (country, i) => <CountryTile key={i} country={country}
+                                                          isActive={i === activeCountry}
+                                                          onCountrySelect={() => this._onCountrySelect(i)}/>)
+          }
+        </ScrollView>
 
       </View>
     )

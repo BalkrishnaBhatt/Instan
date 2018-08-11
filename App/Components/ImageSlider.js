@@ -82,7 +82,7 @@ export default class ImageSlider extends Component {
             flex: 1,
             width: deviceWidth
           }}
-          source={{uri: 'https://www.limitlesswalls.com/media/catalog/product/cache/1/image/600x/040ec09b1e35df139433887a97daa66f/y/e/yellow_taxi_cab_on_black_and_white_street_background_nyc_decals_1494x1000.1520884205.jpg'}}>
+          source={require('../Images/doolu2.jpg')}>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}

@@ -52,8 +52,6 @@ export default StyleSheet.create({
     paddingLeft:15
   },
   resend:{
-    color: '#181818',
-    fontFamily:'Helvetica NeueLTPro_Lt',
     backgroundColor:'#fff',
     height:'70%',
     width:'40%',
@@ -63,8 +61,6 @@ export default StyleSheet.create({
     borderBottomColor:'#5c5c5c'
   },
   done:{
-    color: '#fff',
-    fontFamily:'Helvetica NeueLTPro_Lt',
     backgroundColor:'#181818',
     height:'70%',
     width:'40%',
